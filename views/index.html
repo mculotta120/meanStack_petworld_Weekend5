@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app ='myApp'>
+ <head>
+   <meta charset="utf-8">
+   <title>pet world weekend 5 project</title>
+   <script src="vendors/angular.min.js" type="text/javascript"></script>
+   <script src="scripts/script.js" type="text/javascript"></script>
+ </head>
+ <body>
+   <h1> Pet World </h1>
+   <div ng-controller = 'petController'>
+     <h2> Add a Pet </h2>
+   <input type= "text" ng-model= "petNameBinder" value= "" placeholder="pet's name" required>
+   <input type= "text" ng-model= "typeBinder" value= "" placeholder="type of pet" required>
+   <input type= "text" ng-model= "ageBinder" value= "" placeholder="pet's age" required>
+   <input type= "text" ng-model= "photoBinder" value="" placeholder="pet photo url">
+   <button type="button" name="button" ng-click= "addPet()" >Submit</button>
+   <h2>Display Pets</h2>
+   <button type="button" name="button" ng-click= "getPets()" >Display All</button>
+   <ul>
+     <li ng-repeat='record in allPets'>Pet's Name: {{ record.pet_name}}  Type of Pet: {{ record.type}}  Pet's Age: {{ record.age}} <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo'" /></li>
+   </div>
+
+ </body>
+</html>
