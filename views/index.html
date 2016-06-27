@@ -11,23 +11,23 @@
 
  </head>
  <body ng-controller = 'petController'>
-
+      <h1> Pet World </h1>
   <div ng-init="tab=1" >
     <div class="container">
-      <div class="jumbotron">
-        <div  class = "row">
-  <div  class="tab" ng-click="tab = 1"> Welcome </div>
-  <div  class="tab" ng-click="tab = 2"> Add a Pet </div>
-  <div  class="tab" ng-click="tab = 3"> View Pets </div>
-       </div>
-    </div>
+      <div  class = "row">
+        <div class="span12">
+        <button class="btn btn-info" ng-click="tab = 1"> Welcome </button>
+        <button class="btn btn-info" ng-click="tab = 2"> Add a Pet </button>
+        <button class="btn btn-info" ng-click="tab = 3"> View Pets </button>
+        </div>
+      </div>
   </div>
 <div ng-show="tab == 1">
-   <h1> Pet World </h1>
 
-     <p> Welcome to Pet World!  Add your please add your pet to the database by inputing their
-       name, age, type.<br> If you'd like, you can add a photo by inputting a url.<br>  Then click "Submit my Pet".
-       To see all of the pets in the database, click "Show all Pets".
+      <h3>Welcome to Pet World!</h3>
+      <p>Click on the "Add a Pet" button, then you can add your pet to the database by inputing their
+       name, age, type. If you'd like, you can add a photo by inputting a url.  Then click "Submit my Pet".
+       To view all of the pets in the database, click the "View Pets" button. Then click "Show all Pets".
     </p>
 </div>
 
@@ -49,6 +49,7 @@
    <ul>
         <div class= "displayPets col-md-6" ng-repeat='record in allPets'>
      <b>My name is </b> {{ record.pet_name}}. <b> I'm a </b> {{ record.type}} <b> and I'm <b> {{ record.age}} years old.</b> <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo" width: "200px" />
+     <button type="button" id="deleteButton" ng-click="deletePet($index)">delete</button>
       </div>
    </div>
 </div>

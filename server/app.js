@@ -38,4 +38,18 @@ app.post( '/testPost', function( req, res ){  // POST call
   newRecord.save();
 });
 
+app.post( '/deletePost', function( req, res ){  // POST call
+  var petToDelete={
+  id: req.body.id
+  };
+  if(err){
+    console.log(err);
+    res.sendStatus(500);
+  }else{
+    console.log("success");
+    res.sendStatus(200);
+  }
+  // var deleteRecord=petscollection(  petToDelete );
+  // deleteRecord.remove();
+});
 app.use( express.static( 'public' ) );

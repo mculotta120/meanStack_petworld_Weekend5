@@ -2,11 +2,12 @@ var myApp=angular.module( 'myApp', [] );
 
 angular.module('MyApp',[]);
 
-// controller whereMyPeeps
+// controller
 myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http ){
-  // $scope.date = now();
+    $scope.allPets = [];
+
   $scope.addPet = function(){ // adds record on button click
-    //event.preventDefault();
+
     var objectToSend ={  // package object to send, with inputs
       pet_name: $scope.petNameBinder,
       type: $scope.typeBinder,
@@ -36,5 +37,17 @@ myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http 
         }, function myError( response ){
         console.log( response.statusText );
       });
-}; //end getAssignments
+
+      // console.log($scope.allPets);
+}; //end getPets
+  $scope.deletePet = function(index){
+    var petObject = {
+      id: $scope.allPets[index]._id
+    };
+    $http({  // sends object via POST
+      method: 'POST',
+      url: '/deletePost',
+      data: petObject
+    });
+  };
 }]); // end myApp.controller

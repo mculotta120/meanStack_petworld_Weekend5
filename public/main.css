@@ -13,6 +13,10 @@ h2{
   color: #31868d;
   margin: 40px 20px 40px 20px
 }
+h3 {
+  text-align: center;
+  color: #31868d;
+}
 p{
   text-align: center;
   color: #40B5BF;}
@@ -26,9 +30,11 @@ img{
   border-color: #51d2dd;
   width: 300px;
 }
-#tabs{
+button{
+  padding: 20px;
   margin: auto;
 }
+
 #addAPet{
   border: 5px;
   border-style: double;
@@ -39,7 +45,4 @@ img{
 #displayPets{
   margin:auto;
   width: 300px;
-}
-#jumbotron{
-  text-align: center;
 }
