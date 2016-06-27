@@ -1,12 +1,45 @@
+
 main{
-font-family: 'Comfortaa', cursive;
-background-color: #9FDED5;}
+  background-color: #9FDED5;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
 h1{
   color: #31868d;
+  text-align: center;
 }
 h2{
+  text-align: auto;
   color: #31868d;
+  margin: 40px 20px 40px 20px
 }
 p{
-text-align: center;
-    color: #40B5BF;}
+  text-align: center;
+  color: #40B5BF;}
+ul{
+  list-style-type: none;
+  text-align: center;
+  margin: auto;}
+img{
+  border: 5px;
+  border-style: double;
+  border-color: #51d2dd;
+  width: 300px;
+}
+#tabs{
+  margin: auto;
+}
+#addAPet{
+  border: 5px;
+  border-style: double;
+  border-color: #51d2dd;
+  padding: 30px;
+  margin: auto;
+}
+#displayPets{
+  margin:auto;
+  width: 300px;
+}
+#jumbotron{
+  text-align: center;
+}

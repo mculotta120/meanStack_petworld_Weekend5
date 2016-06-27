@@ -5,27 +5,53 @@
    <title>pet world weekend 5 project</title>
    <script src="vendors/angular.min.js" type="text/javascript"></script>
    <script src="scripts/script.js" type="text/javascript"></script>
+   <link rel="stylesheet" href= "vendors/bootstrap.min.css"/>
    <link rel="stylesheet" href= "main.css"/>
-   <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
+
+
  </head>
- <body>
+ <body ng-controller = 'petController'>
+
+  <div ng-init="tab=1" >
+    <div class="container">
+      <div class="jumbotron">
+        <div  class = "row">
+  <div  class="tab" ng-click="tab = 1"> Welcome </div>
+  <div  class="tab" ng-click="tab = 2"> Add a Pet </div>
+  <div  class="tab" ng-click="tab = 3"> View Pets </div>
+       </div>
+    </div>
+  </div>
+<div ng-show="tab == 1">
    <h1> Pet World </h1>
+
      <p> Welcome to Pet World!  Add your please add your pet to the database by inputing their
        name, age, type.<br> If you'd like, you can add a photo by inputting a url.<br>  Then click "Submit my Pet".
        To see all of the pets in the database, click "Show all Pets".
     </p>
- <div ng-controller = 'petController'>
-     <h2> Add a Pet </h2>
+</div>
+
+<div ng-show="tab == 2" id= "addAPet">
+         <h2> Add a Pet </h2>
+    <div  id = display >
    <input type= "text" ng-model= "petNameBinder" value= "" placeholder="pet's name" required>
    <input type= "text" ng-model= "typeBinder" value= "" placeholder="type of pet" required>
    <input type= "text" ng-model= "ageBinder" value= "" placeholder="pet's age" required>
    <input type= "text" ng-model= "photoBinder" value="" placeholder="pet photo url">
    <button type="button" name="button" ng-click= "addPet()" >Submit my Pet</button>
-   <h2>Display Pets</h2>
+ </div>
+</div>
+
+<div ng-show="tab == 3" id= "displayPets" class="container">
+          <h2>Display Pets</h2>
+    <div class = "row">
    <button type="button" name="button" ng-click= "getPets()" >Show all Pets</button>
    <ul>
-     <li ng-repeat='record in allPets'><b>Pet's Name:</b> {{ record.pet_name}} <b> Type of Pet: </b> {{ record.type}} <b> Pet's Age:<b> {{ record.age}} <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo'" /></li>
+        <div class= "displayPets col-md-6" ng-repeat='record in allPets'>
+     <b>My name is </b> {{ record.pet_name}}. <b> I'm a </b> {{ record.type}} <b> and I'm <b> {{ record.age}} years old.</b> <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo" width: "200px" />
+      </div>
    </div>
-
+</div>
+ </div>
  </body>
 </html>

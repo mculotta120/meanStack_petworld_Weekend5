@@ -1,5 +1,7 @@
 var myApp=angular.module( 'myApp', [] );
 
+angular.module('MyApp',[]);
+
 // controller whereMyPeeps
 myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http ){
   // $scope.date = now();
