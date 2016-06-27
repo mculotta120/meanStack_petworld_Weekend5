@@ -1,12 +1,15 @@
 
-main{
-  background-color: #9FDED5;
+body{
+  background-image: url("/images/animalbkg.jpg");
+   background-repeat: repeat;
   font-family: Verdana, Geneva, sans-serif;
+  padding: 50px;
 }
 
 h1{
   color: #31868d;
-  text-align: center;
+  text-align: left;
+  margin-left: 20px;
 }
 h2{
   text-align: auto;
@@ -19,7 +22,7 @@ h3 {
 }
 p{
   text-align: center;
-  color: #40B5BF;}
+  color: white;}
 ul{
   list-style-type: none;
   text-align: center;
@@ -35,10 +38,14 @@ button{
   margin: auto;
 
 }
-#buttonTab{
+.buttonTab{
   margin: auto;
 }
-
+#main{
+  background-color: rgba(159, 222, 213, .95);
+  padding: 60px;
+  margin: auto;
+}
 #addAPet{
   border: 5px;
   border-style: double;

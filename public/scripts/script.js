@@ -48,7 +48,6 @@ myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http 
       url: '/deletePost',
       data: petObject
     });
-    console.log( $scope.allPets );
     $scope.allPets.splice( index, 1 );
 
   }; // end deletePet

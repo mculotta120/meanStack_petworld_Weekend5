@@ -11,43 +11,49 @@
 
  </head>
  <body ng-controller = 'petController'>
+   <div id= "main">
       <h1> Pet World </h1>
+
   <div ng-init="tab=1" >
-    <div class="container" id = "buttonTab">
+    <div class="container">
+      <div class= "buttonTab">
         <button class="btn btn-info" ng-click="tab = 1"> Welcome </button>
         <button class="btn btn-info" ng-click="tab = 2"> Add a Pet </button>
         <button class="btn btn-info" ng-click="tab = 3"> View Pets </button>
+      </div>
   </div>
-<div ng-show="tab == 1">
 
-      <h3>Welcome to Pet World!</h3>
-      <p>Click on the "Add a Pet" button, then you can add your pet to the database by inputing their
-       name, age, type. If you'd like, you can add a photo by inputting a url.  Then click "Submit my Pet".
-       To view all of the pets in the database, click the "View Pets" button. Then click "Show all Pets".
-    </p>
+<div ng-show="tab == 1">
+    <h3>Welcome to Pet World!</h3>
+      <p>
+         Click on the "Add a Pet" button, then you can add your pet to the database by inputing their
+         name, age, type. If you'd like, you can add a photo by inputting a url.  Then click "Submit my Pet".
+         To view all of the pets in the database, click the "View Pets" button. Then click "Show all Pets".
+      </p>
 </div>
 
 <div ng-show="tab == 2" id= "addAPet">
-         <h2> Add a Pet </h2>
-    <div  id = display >
-   <input type= "text" ng-model= "petNameBinder" value= "" placeholder="pet's name" required>
-   <input type= "text" ng-model= "typeBinder" value= "" placeholder="type of pet" required>
-   <input type= "text" ng-model= "ageBinder" value= "" placeholder="pet's age" required>
-   <input type= "text" ng-model= "photoBinder" value="" placeholder="pet photo url">
-   <button class="btn btn-info" ng-click= "addPet()" >Submit my Pet</button>
- </div>
+  <h2> Add a Pet </h2>
+     <div  id = display >
+       <input type= "text" ng-model= "petNameBinder" value= "" placeholder="pet's name" required>
+       <input type= "text" ng-model= "typeBinder" value= "" placeholder="type of pet" required>
+       <input type= "text" ng-model= "ageBinder" value= "" placeholder="pet's age" required>
+       <input type= "text" ng-model= "photoBinder" value="" placeholder="pet photo url">
+       <button class="btn btn-info" ng-click= "addPet()" >Submit my Pet</button>
+    </div>
 </div>
 
 <div ng-show="tab == 3" id= "displayPets" class="container">
-          <h2>Display Pets</h2>
-    <div class = "row">
-   <button class="btn btn-info" ng-click= "getPets()" >Show all Pets</button>
-        <div class= "displayPets col-md-4" ng-repeat='record in allPets'>
-     <b>My name is </b> {{ record.pet_name}}. <b> I'm a </b> {{ record.type}} <b> and I'm <b> {{ record.age}} years old.</b> <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo" width: "200px" />
-     <button class="btn btn-info" id="deleteButton" ng-click="deletePet($index)">delete</button>
+  <h2>Display Pets</h2>
+  <button class="btn btn-info" ng-click= "getPets()" >Show all Pets</button>
+      <div class = "row">
+        <div class= "displayPets col-md-6" ng-repeat='record in allPets'>
+          <b>My name is </b> {{ record.pet_name}}. <b> I'm a </b> {{ record.type}} <b> and I'm <b> {{ record.age}} years old.</b> <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo" width: "200px" />
+          <br><button class="btn btn-info" id="deleteButton" ng-click="deletePet($index)">delete</button>
       </div>
    </div>
 </div>
+ </div>
  </div>
  </body>
 </html>
