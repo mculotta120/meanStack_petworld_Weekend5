@@ -5,6 +5,17 @@ angular.module('MyApp',[]);
 // controller
 myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http ){
     $scope.allPets = [];
+    event.preventDefault();
+    $scope.getPets = function(){  // gets current recordset upon button click
+        $http({   // gets recordset via GET
+          method: 'GET',
+          url: '/getPets',
+        }).then( function( response ){  // success call - runs function with response parameter
+          console.log(response);
+            $scope.allPets = response.data;  // pulls the data from app.js and sets to allTheRecords
+          }, function myError( response ){
+          console.log( response.statusText );
+        });
 
   $scope.addPet = function(){ // adds record on button click
 
@@ -27,18 +38,6 @@ myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http 
     $scope.photoBinder = '';
   }; // end addRecord function
 
-  $scope.getPets = function(){  // gets current recordset upon button click
-      $http({   // gets recordset via GET
-        method: 'GET',
-        url: '/getPets',
-      }).then( function( response ){  // success call - runs function with response parameter
-        console.log(response);
-          $scope.allPets = response.data;  // pulls the data from app.js and sets to allTheRecords
-        }, function myError( response ){
-        console.log( response.statusText );
-      });
-
-      // console.log($scope.allPets);
 }; //end getPets
   $scope.deletePet = function(index){
     var petObject = {
@@ -49,5 +48,8 @@ myApp.controller( 'petController', [ '$scope', '$http', function( $scope, $http 
       url: '/deletePost',
       data: petObject
     });
-  };
+    console.log( $scope.allPets );
+    $scope.allPets.splice( index, 1 );
+
+  }; // end deletePet
 }]); // end myApp.controller

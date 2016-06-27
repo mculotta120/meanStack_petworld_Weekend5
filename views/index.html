@@ -13,14 +13,10 @@
  <body ng-controller = 'petController'>
       <h1> Pet World </h1>
   <div ng-init="tab=1" >
-    <div class="container">
-      <div  class = "row">
-        <div class="span12">
+    <div class="container" id = "buttonTab">
         <button class="btn btn-info" ng-click="tab = 1"> Welcome </button>
         <button class="btn btn-info" ng-click="tab = 2"> Add a Pet </button>
         <button class="btn btn-info" ng-click="tab = 3"> View Pets </button>
-        </div>
-      </div>
   </div>
 <div ng-show="tab == 1">
 
@@ -38,18 +34,17 @@
    <input type= "text" ng-model= "typeBinder" value= "" placeholder="type of pet" required>
    <input type= "text" ng-model= "ageBinder" value= "" placeholder="pet's age" required>
    <input type= "text" ng-model= "photoBinder" value="" placeholder="pet photo url">
-   <button type="button" name="button" ng-click= "addPet()" >Submit my Pet</button>
+   <button class="btn btn-info" ng-click= "addPet()" >Submit my Pet</button>
  </div>
 </div>
 
 <div ng-show="tab == 3" id= "displayPets" class="container">
           <h2>Display Pets</h2>
     <div class = "row">
-   <button type="button" name="button" ng-click= "getPets()" >Show all Pets</button>
-   <ul>
-        <div class= "displayPets col-md-6" ng-repeat='record in allPets'>
+   <button class="btn btn-info" ng-click= "getPets()" >Show all Pets</button>
+        <div class= "displayPets col-md-4" ng-repeat='record in allPets'>
      <b>My name is </b> {{ record.pet_name}}. <b> I'm a </b> {{ record.type}} <b> and I'm <b> {{ record.age}} years old.</b> <br> <img ng-src="{{record.photo}}" alt="{{record.pet_name}}'s photo" width: "200px" />
-     <button type="button" id="deleteButton" ng-click="deletePet($index)">delete</button>
+     <button class="btn btn-info" id="deleteButton" ng-click="deletePet($index)">delete</button>
       </div>
    </div>
 </div>
