@@ -1,7 +1,8 @@
 # meanStack_petworld_Weekend5
 Weekend 5 assignment-MEAN Stack pet database
-The challenge:
-Description
+
+The Challenge Description:
+
 This is the LAST weekend challenge!
 
 In this challenge, you will be creating a Pet Application that allows a user to create Pets that are stored in a database. Then, in another view, the user can see the list of pets.
